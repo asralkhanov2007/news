@@ -1,0 +1,146 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+  }
+  </script>
+{% block content %}
+
+<main>
+
+<div class="container">
+   <br><br><br>
+   <!-- Single Photo -->
+  <div class="row">
+    <div class="col xl8 l8 m8 s12">
+      <div class="row">
+      <div class="card z-depth-3">
+        <div class="card-image">
+          <img src="{{post.image.url}}" alt="">
+          <span class="card-title">{{post.title}}</span>
+        </div>
+        <div class="card-content">
+          <h6><b>{{post.body}}</b></h6>
+        </div>
+        <div class="card-action">
+          <a href="{{post.get_absolute_url}}"><i class="fas fa-user">{{post.author}}</i></a>
+          <a href="{{post.get_absolute_url}}"><i class="fas fa-clock">{{post.published}}</i></a>
+          <a href="{{post.get_absolute_url}}"><i class="fas fa-eye">{{post.views}}</i></a>
+        </div>
+      </div>
+
+<div class="col xl12 l12 m12 s12">
+  <div class="row">
+  <div class="card-panel z-depth-3">
+    <div class="header">
+      <h4><b>Izohlar ({{post.comments.all.count}})</b></h4>
+      <ul class="collection">
+  {% for commentator in post.comments.all %}
+    <li class="collection-item avatar">
+      <img src="/static/img/john.png" alt="" class="circle">
+      <h4 class="title">{{commentator.name}}<span class="right">{{commentator.date}}</span></h4>
+      <p>
+        {{commentator.comment}}
+      </p>
+    </li>
+  {% endfor %}
+  </ul>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+  <!-- Ending of Single Photo -->
+
+  <!-- CategoyTag -->
+
+  <div class="col xl4 l4 m4 s12">
+    <div class="row">
+      <div class="card-panel z-depth-" id="categoryTag">
+        <div class="header">
+          <h4><b>Kategoriyalar</b></h4>
+        </div>
+        <!-- Category -->
+        <div class="collection">
+          {% for category in categories %}
+          <a href="{% url 'main:category_detail' category.slug %}" class="collection-item"><b>{{category.name}}</b></a>
+          {% endfor %}
+        </div>
+        <!-- Ending of Category -->
+      </div>
+
+      <!-- Tags -->
+        <div class="card-panel z-depth-3" id="categoryTag">
+    <div class="header">
+      <h4><b>Teglar</b></h4>
+    </div>
+  <div class="row">  
+    {% for tag in tags %}
+      <a href="{{tag.get_absolute_url}}" class="btn">{{tag.name}}</a>
+    {% endfor %}
+  </div>
+  </div>
+      <!-- Ending of Tags -->
+  <h4 class="center"><b>Andijon:</b></h4>
+  <a href="https://clck.yandex.ru/redir/dtype=stred/pid=7/cid=1228/*https://yandex.uz/pogoda/10335" target="_blank"><img src="https://info.weather.yandex.net/10335/2_white.ru.png?domain=uz" border="0" alt="Яндекс.Погода"/><img width="5" height="5" src="https://clck.yandex.ru/click/dtype=stred/pid=7/cid=1227/*https://img.yandex.ru/i/pix.gif" alt="" border="0"/></a>
+   
+
+
+
+  <!-- Ending of CategoyTag -->
+<!-- All News -->
+<div class="card-panel z-depth-3" id="categoryTag">
+  <div class="header"><h4><b>Boshqa maqolalar</b></h4></div>
+  <div class="row">
+    <ul class="collection">
+      {% for posts in all_post %}
+      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body}}</a></b></h6></li>
+      {% endfor %}
+    </ul>
+    </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Ending of All News -->
+
+
+<!-- Comment Form -->
+<div class="container">
+<div class="col xl8 l8 m8 s12">
+  <div class="row">
+    <div class="card-panel z-depth-3">
+      <div class="header">
+        <h4><b>Izoh qoldirish</b></h4>
+      </div>
+        <form action="" id="form" method="POST">
+          {% csrf_token %}
+          {{form|crispy}}
+          <center>
+          <input class="btn" type="submit" value="Izoh qoldirish">
+          </center>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Ending of Comment Form -->
+
+
+</main>
+
+
+  {% endblock  %}
+
+  </body>
+</html>

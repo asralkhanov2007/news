@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Yangiliklar!</title>
+
+  <!-- CSS  -->
+  <link rel="short icon" href="https://icons.iconarchive.com/icons/pelfusion/folded-flat/128/News-icon.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'main:home' %}" class="brand-logo">AsralkhanovBlog</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'main:home' %}">Bosh sahifa</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="{% url 'main:home' %}">Bosh sahifa</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+  }
+  </script>
+  {% block content %}
+  
+
+
+  {% endblock  %}
+
+
+
+  
+  <footer class="page-footer light-blue lighten-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h3 class="white-text">AsralkhanovBlog</h3>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"><b>Teglar</b></h5>
+          <ul>
+            {% for tag in footer_tags %}
+            <li><a class="white-text" href="{{tag.get_absolute_url}}"><b>{{tag.name}}</b></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text"><b>Kategoriyalar</b></h5>
+          <ul>
+            {% for category in footer_category %}
+            <li><a class="white-text" href="{% url 'main:category_detail' category.slug %}"><b>{{category.name}}</b></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Asralkhanov</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/static/js/materialize.js"></script>
+  <script src="/static/js/init.js"></script>
