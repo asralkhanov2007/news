@@ -47,7 +47,7 @@
           </a>
         </div>
         <div class="card-content">
-          <p>{{post.body}}</p>
+          <p>{{post.body|truncatewords:10}}</p>
         </div>
         <div class="card-action">
           <a href="{{post.get_absolute_url}}"><i class="fas fa-user">{{post.author}}</i></a>
@@ -81,7 +81,7 @@
           </a>
         </div>
         <div class="card-content">
-          <p>{{top.body}}</p>
+          <p>{{top.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
           <a href="#"><i class="fas fa-user">{{top.author}}</i></a>
@@ -116,7 +116,7 @@
           </a>
         </div>
         <div class="card-content">
-          <p>{{item.body}}</p>
+          <p>{{item.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
           <a href="#"><i class="fas fa-user">{{item.author}}</i></a>
@@ -168,7 +168,7 @@
   <div class="row">
     <ul class="collection">
       {% for posts in all_post %}
-      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body}}</a></b></h6></li>
+      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body|truncatewords:20}}</a></b></h6></li>
       {% endfor %}
     </ul>
   </div>

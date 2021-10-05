@@ -99,7 +99,7 @@
   <div class="row">
     <ul class="collection">
       {% for posts in all_post %}
-      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body}}</a></b></h6></li>
+      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body|truncatewords:20}}</a></b></h6></li>
       {% endfor %}
     </ul>
     </ul>

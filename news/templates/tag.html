@@ -23,7 +23,7 @@
           </a>
         </div>
         <div class="card-content">
-          <p>{{item.body}}</p>
+          <p>{{item.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
           <a href="{{item.get_absolute_url}}"><i class="fas fa-user">{{item.author}}</i></a>
