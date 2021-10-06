@@ -19,9 +19,10 @@
       <div class="card z-depth-3">
         <div class="card-image">
           <img src="{{post.image.url}}" alt="">
-          <span class="card-title">{{post.title}}</span>
+          
         </div>
         <div class="card-content">
+          <span style="color:blue;"><a href="{{top.get_absolute_url}}"><b>{{post.title|upper}}</b></a></span>
           <h6><b>{{post.body}}</b></h6>
         </div>
         <div class="card-action">

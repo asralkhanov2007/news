@@ -39,15 +39,15 @@
   <div class="row">
     {% for post in posts %}   
     <div class="col xl4 l4 m4 s12">
-      <div class="card">
+      <div class="card large">
         <div class="card-image">
           <a href="{{post.get_absolute_url}}">
             <img src="{{post.image.url}}">
-          <span class="card-title">{{post.title}}</span>
           </a>
         </div>
         <div class="card-content">
-          <p>{{post.body|truncatewords:10}}</p>
+          <span style="color:blue;"><a href="{{top.get_absolute_url}}"><b>{{post.title|upper|truncatewords:5}}</b></a></span>
+          <p>{{post.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
           <a href="{{post.get_absolute_url}}"><i class="fas fa-user">{{post.author}}</i></a>
@@ -73,14 +73,15 @@
   <div class="row">
     {% for top in tops %}
     <div class="col xl4 l4 m4 s12">
-      <div class="card">
+      <div class="card large">
         <div class="card-image">
           <a href="{{top.get_absolute_url}}">
           <img src="{{top.image.url}}">
-          <span class="card-title">{{top.title}}</span>
-          </a>
-        </div>
-        <div class="card-content">
+        </a>
+      </div>
+      <div class="card-content">
+          <span style="color:blue;"><a href="{{top.get_absolute_url}}"><b>{{top.title|upper|truncatewords:5}}</b></a></span>
+          
           <p>{{top.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
@@ -112,10 +113,10 @@
         <div class="card-image">
           <a href="{{item.get_absolute_url}}">
           <img src="{{item.image.url}}">
-          <span class="card-title">{{item.title}}</span>
           </a>
         </div>
         <div class="card-content">
+          <span style="color:blue;"><a href="{{top.get_absolute_url}}"><b>{{item.title|upper}}</b></a></span>
           <p>{{item.body|truncatewords:20}}</p>
         </div>
         <div class="card-action">
@@ -168,7 +169,7 @@
   <div class="row">
     <ul class="collection">
       {% for posts in all_post %}
-      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body|truncatewords:20}}</a></b></h6></li>
+      <li class="collection-item"><h6><b><a href="{{posts.get_absolute_url}}">{{posts.body|truncatewords:10}}</a></b></h6></li>
       {% endfor %}
     </ul>
   </div>

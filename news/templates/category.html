@@ -15,7 +15,7 @@
   <div class="row">
     {% for item in object.posts.all %}   
     <div class="col xl4 l4 m4 s12">
-      <div class="card">
+      <div class="card medium">
         <div class="card-image">
           <a href="{{item.get_absolute_url}}">
             <img src="{{item.image.url}}">

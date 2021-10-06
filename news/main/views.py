@@ -35,6 +35,7 @@ def postDetailPage(request, post_slug):
 	else:
 		form = AddCommentForm()
 	post.views += 1
+	post.save()
 	context = {
 		'post':post,
 		'form':form,
