@@ -41,3 +41,6 @@ def postDetailPage(request, post_slug):
 		'form':form,
 	}
 	return render(request, 'single.html', context)
+
+def entry_not_found(request, exception=None):
+    return render(request, '404.html')

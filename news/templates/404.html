@@ -1,0 +1,31 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+	<main>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col xl12 l12 s12">
+							<br><br><br>
+						<div class=" center">
+							<h1 class="red-text" style="font-size: 200px;">
+								404
+							</h1>
+							<h1 class="red-text"><b>Sahifa topilmadi!</b></h1>
+							<h5 class="blue-text "><b>Agar bu siz hohlagan sahifa bo'lmasa</b></h5>
+							<br>
+							<a href="{% url 'main:home' %}" style="border-radius: 20px;" class="btn red">Bosh sahifaga qayting!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    </main>
+</body>
+
+
+
+
+{% endblock  %}
