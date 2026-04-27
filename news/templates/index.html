@@ -10,12 +10,14 @@
     <ul class="slides">
       {% for item in home %}
       <li>
-        <a href="{{item.get_absolute_url}}">
-        <img src="{{item.image.url}}">
-        </a> <!-- random image -->
-        <div class="caption center-align">
-          <h3>{{item.title}}</h3>
-        </div>
+          <a href="{{item.get_absolute_url}}">
+              {% if item.image %}
+                  <img src="{{item.image.url}}">
+              {% endif %}
+          </a>
+          <div class="caption center-align">
+              <h3>{{item.title}}</h3>
+          </div>
       </li>
       {% endfor %}
     </ul>
